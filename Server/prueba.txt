@@ -1,3 +1,0 @@
-texto de prueba 
-python redes
-labo

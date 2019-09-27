@@ -20,9 +20,20 @@ _REQUEST = {
     "video": {
         "name": "Closer - Lemaitre",
         "size": str(os.stat(_VIDEO_PATH).st_size)
+    }
+}
+
+_HASH = {
+    "algorithm": "sha224",
+    "book": {
+        "digested": '0',
+        "size": '0',
+        "block": '0'
     },
-    "hash": {
-        "algorithm": "sha224"
+    "video": {
+        "digested": '0',
+        "size": '0',
+        "block": '0'
     }
 }
 
@@ -36,23 +47,16 @@ class ProtocolThread(Thread):
         self.logging = logging
         self._upstream = b""
         self._downstrem = b""
-        self.response_created = False
+        self._book_hashed = False
+        self._video_hashed = False
 
     def execute(self):
-        #self._read()
+        # self._read()
         self.process_header()
-
-    def _read(self):
-        data = self.sock.recv(_BUFFER_SIZE)
-        if data:
-            print(data)
-        else:
-            self.process_header()
 
     def process_header(self):
         message = repr(_REQUEST).encode(_ENCODING)
         self._upstream += message
-        self.response_created = True
         self._write()
 
     def _write(self):
@@ -66,48 +70,65 @@ class ProtocolThread(Thread):
         self.process_content()
 
     def process_content(self):
-        data = self.sock.recv(_BUFFER_SIZE)
-        print(f'+ --> [Server] Got {data} Request.')
-        if data:
-            if data.decode(_ENCODING) == 'BOOK':
-                print(f'+ --> [Server] Sending Book')
-                hasher = hashlib.sha224()
-                f = open(_BOOK_PATH, 'rb')
-                #buf = f.read()
-                while True:
-                    l = f.read(_BUFFER_SIZE)
-                    while (l):
-                        self.sock.send(l)
-                        l = f.read(_BUFFER_SIZE)
-                        hasher.update(l)
-                    if not l:
-                        f.close()
-                        _REQUEST["hash"]["digested"] = repr(hasher.hexdigest())
-                        _REQUEST["hash"]["size"], _REQUEST["hash"]["block"] =  str(hasher.digest_size), str(hasher.block_size)
-                        self.sock.send(repr(_REQUEST.get("hash")).encode(_ENCODING))
-                        _REQUEST["hash"] = { "algorith": "sha224" }
-                        self.close()
-                        break
-            if data.decode(_ENCODING) == 'VIDEO':
-                print(f'+ --> [Server] Sending Video')
-                hasher = hashlib.sha1()
-                f = open(_VIDEO_PATH, 'rb')
-                buf = f.read()
-                hasher.update(buf)
-                while True:
-                    l = f.read(_BUFFER_SIZE)
-                    while (l):
-                        self.sock.send(l)
-                        l = f.read(_BUFFER_SIZE)
-                    if not l:
-                        f.close()
-                        #_REQUEST["hash"]["digested"] = repr(hasher.digest())
-                        _REQUEST["hash"]["size"], _REQUEST["hash"]["block"] =  str(hasher.digest_size), str(hasher.block_size)
-                        self.sock.send(repr(_REQUEST.get("hash")).encode(_ENCODING))
-                        self.close()
-                        break
-        self.logging.info(f'+ --> [Server] Content Delivered.')
-        print(f'+ --> [Server] Content Delivered.')
+        while True:
+            data = self.sock.recv(_BUFFER_SIZE)
+            print(f'+ --> [Server] Got {data} Request.')
+            if data:
+                if data.decode(_ENCODING) == 'BOOK':
+                    print(f'+ --> [Server] Sending Book')
+                    self._send_book()
+                    break
+
+                elif data.decode(_ENCODING) == 'VIDEO':
+                    print(f'+ --> [Server] Sending Video')
+                    self._send_video()
+                    break
+
+                elif data.decode(_ENCODING) == "HASH":
+                    print(f'+ --> [Server] Sending Hash')
+                    self._send_hash()
+                
+                else:
+                    self.close()
+                    break
+            else:
+                self.close()
+                break
+
+            self.logging.info(f'+ --> [Server] Content Delivered.')
+            print(f'+ --> [Server] Content Delivered.')
+
+    def _send_book(self):
+        f = open(_BOOK_PATH, 'rb')
+        while True:
+            l = f.read(_BUFFER_SIZE)
+            while (l):
+                self.sock.send(l)
+                l = f.read(_BUFFER_SIZE)
+            if not l:
+                f.close()
+                self.close()
+                break
+
+    def _send_video(self):
+        f = open(_VIDEO_PATH, 'rb')
+        while True:
+            l = f.read(_BUFFER_SIZE)
+            while (l):
+                self.sock.send(l)
+                l = f.read(_BUFFER_SIZE)
+            if not l:
+                f.close()
+                self.close()
+                break
+
+    def _send_hash(self):
+        if not self._book_hashed:
+            self.set_hash_Book()
+        if not self._video_hashed:
+            self.set_hash_Video()
+        self.sock.send(repr(_HASH).encode(_ENCODING))
+        #self.close()
 
     def close(self):
         try:
@@ -120,6 +141,13 @@ class ProtocolThread(Thread):
         finally:
             self.sock = None
 
+    def _read(self):
+        data = self.sock.recv(_BUFFER_SIZE)
+        if data:
+            print(data)
+        else:
+            self.process_header()
+
     '''
     HASH
     '''
@@ -129,13 +157,15 @@ class ProtocolThread(Thread):
         with open(_BOOK_PATH, 'rb') as af:
             buf = af.read()
             hasher.update(buf)
-        _REQUEST["hash"]["digested"] = hasher.digest()
-        _REQUEST["hash"]["size"], _REQUEST["hash"]["block"] =  hasher.digest_size, hasher.block_size
-        print(_REQUEST)
+        _HASH["book"]["digested"] = repr(hasher.hexdigest())
+        _HASH["book"]["size"], _HASH["book"]["block"] = hasher.digest_size, hasher.block_size
+        self._book_hashed = True
 
     def set_hash_Video(self):
         hasher = hashlib.sha1()
-        with open(_VIDEO_PATH, 'rb') as af:
+        with open(_BOOK_PATH, 'rb') as af:
             buf = af.read()
             hasher.update(buf)
-        _REQUEST["hash"]["digested"] = hasher.hexdigest()
+        _HASH["video"]["digested"] = repr(hasher.hexdigest())
+        _HASH["video"]["size"], _HASH["video"]["block"] = hasher.digest_size, hasher.block_size
+        self._video_hashed = True

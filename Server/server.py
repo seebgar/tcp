@@ -26,17 +26,23 @@ if __name__ == "__main__":
     TCP_Sock.bind((_HOST, _PORT))
     threads = []
 
-    while True:
-        TCP_Sock.listen(_MAX_CONNECTIONS)
-        logging.info(f'--> Listening on {_HOST}:{_PORT}')
-        print(f'--> Listening on {_HOST}:{_PORT}')
-        connection, address = TCP_Sock.accept()
-        logging.info(
-            f'+ --> [Server] Connection Established with Client {address}')
-        print(f'+ --> [Server] Connection Established with Client {address}')
-        new_thread = ProtocolThread(address, connection, logging)
-        new_thread.execute()
-        threads.append(new_thread)
+    try:
+        while True:
+            TCP_Sock.listen(_MAX_CONNECTIONS)
+            logging.info(f'--> Listening on {_HOST}:{_PORT}')
+            print(f'--> Listening on {_HOST}:{_PORT}')
+            connection, address = TCP_Sock.accept()
+            logging.info(
+                f'+ --> [Server] Connection Established with Client {address}')
+            print(f'+ --> [Server] Connection Established with Client {address}')
+            new_thread = ProtocolThread(address, connection, logging)
+            new_thread.execute()
+            threads.append(new_thread)
+        
+        for t in threads:
+            t.join()
+    except KeyboardInterrupt:
+        print("\n--> [Server End] Caught Keyboard Interrupt.\n--> Exiting\n ")
+    
 
-    for t in threads:
-        t.join()
+    

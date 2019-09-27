@@ -1,0 +1,24 @@
+INFO:
+
+September 27, 2019 - 17:38:43
+
+INFO:
+--> [Client] Connection Established with Server ('localhost', 65439)
+INFO:* --> [Client] Finished Downloading
+INFO:* --> [Client] File downloaded completely and without modifications
+INFO:* --> [Client] Connection Elapsed Time:
+* --> 0.123339 seconds
+INFO:--> [Client] Connection finished
+
+INFO:
+
+September 27, 2019 - 17:39:03
+
+INFO:
+--> [Client] Connection Established with Server ('localhost', 65439)
+INFO:* --> [Client] Finished Downloading
+INFO:* --> [Client] File downloaded completely and without modifications
+INFO:* --> [Client] Connection Elapsed Time:
+* --> 0.223082 seconds
+INFO:--> [Client] Connection finished
+
