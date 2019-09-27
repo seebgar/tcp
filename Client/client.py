@@ -14,7 +14,7 @@ Request and Response Processing
 # _HOST = "<your-ec2-public_ip>"
 _HOST = 'localhost'
 _PORT = 65439
-_REQUEST = "VIDEO"  # "BOOK" || "VIDEO"
+_REQUEST = "BOOK"  # "BOOK" || "VIDEO"
 
 
 if __name__ == "__main__":

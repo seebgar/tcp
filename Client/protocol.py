@@ -88,6 +88,7 @@ class Protocol():
         self.sock.sendall(self._request.encode(_ENCODING))
         data_recieved = 0
 
+        
         with open(file_path, 'wb') as f:
             while True:
                 data = self.sock.recv(_BUFFER_SIZE)
@@ -103,7 +104,7 @@ class Protocol():
         print("* --> [Client] Finished Downloading")
         logging.info("* --> [Client] Finished Downloading")
         # self.close()
-        self.process_hash(_BOOK_PATH, req)
+        self.process_hash(file_path, req)
 
     def process_hash(self, file_path, req):
         # self.request_hash()

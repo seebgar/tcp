@@ -57,3 +57,33 @@ INFO:--> Listening on localhost:65439
 INFO:+ --> [Server] Connection Established with Client ('127.0.0.1', 51839)
 INFO:+ --> [Server] Content Delivered.
 INFO:--> Listening on localhost:65439
+INFO:
+
+September 27, 2019 - 18:38:22
+
+INFO:--> Listening on localhost:65439
+INFO:+ --> [Server] Connection Established with Client ('127.0.0.1', 49335)
+INFO:+ --> [Server] Content Delivered.
+INFO:--> Listening on localhost:65439
+INFO:+ --> [Server] Connection Established with Client ('127.0.0.1', 49364)
+INFO:+ --> [Server] Content Delivered.
+INFO:--> Listening on localhost:65439
+INFO:+ --> [Server] Connection Established with Client ('127.0.0.1', 49375)
+INFO:+ --> [Server] Content Delivered.
+INFO:
+
+September 27, 2019 - 18:42:04
+
+INFO:--> Listening on localhost:65439
+INFO:+ --> [Server] Connection Established with Client ('127.0.0.1', 49410)
+INFO:+ --> [Server] Content Delivered.
+INFO:--> Listening on localhost:65439
+INFO:+ --> [Server] Connection Established with Client ('127.0.0.1', 49415)
+INFO:+ --> [Server] Content Delivered.
+INFO:--> Listening on localhost:65439
+INFO:+ --> [Server] Connection Established with Client ('127.0.0.1', 49418)
+INFO:+ --> [Server] Content Delivered.
+INFO:--> Listening on localhost:65439
+INFO:+ --> [Server] Connection Established with Client ('127.0.0.1', 49424)
+INFO:+ --> [Server] Content Delivered.
+INFO:--> Listening on localhost:65439
