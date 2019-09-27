@@ -1,6 +1,7 @@
 import os
 from threading import Thread
 import hashlib
+import logging
 
 '''
 SERVER PROTOCOL
@@ -11,6 +12,8 @@ _BOOK_PATH = 'book100.pdf'
 _VIDEO_PATH = 'video200.mp4'
 _BUFFER_SIZE = 1024  # 4086
 _ENCODING = "utf-8"
+
+# Lo que se puede enviar son dos archivos, uno de 100 Mb (13,107,200 Bytes = 12.5 MB) , y otro de 200 Mb (26,214,400 Bytes = 25 MB) [Uno debe ser multimedia]
 
 _REQUEST = {
     "book": {
@@ -40,11 +43,12 @@ _HASH = {
 
 class ProtocolThread(Thread):
 
-    def __init__(self, address, socket, logging):
+    def __init__(self, address, socket):
+        logging.basicConfig(
+            filename='.log', format='%(levelname)s:%(message)s', level=logging.DEBUG)
         Thread.__init__(self)
         self.addr = address
         self.sock = socket
-        self.logging = logging
         self._upstream = b""
         self._downstrem = b""
         self._book_hashed = False
@@ -87,7 +91,7 @@ class ProtocolThread(Thread):
                 elif data.decode(_ENCODING) == "HASH":
                     print(f'+ --> [Server] Sending Hash')
                     self._send_hash()
-                
+
                 else:
                     self.close()
                     break
@@ -95,7 +99,7 @@ class ProtocolThread(Thread):
                 self.close()
                 break
 
-            self.logging.info(f'+ --> [Server] Content Delivered.')
+            logging.info(f'+ --> [Server] Content Delivered.')
             print(f'+ --> [Server] Content Delivered.')
 
     def _send_book(self):
@@ -128,13 +132,13 @@ class ProtocolThread(Thread):
         if not self._video_hashed:
             self.set_hash_Video()
         self.sock.send(repr(_HASH).encode(_ENCODING))
-        #self.close()
+        # self.close()
 
     def close(self):
         try:
             self.sock.close()
         except OSError as e:
-            self.logging.error(
+            logging.error(
                 f'[Socket Close Error] --> self.sock.close() @ Thread {self.addr}\n{repr(e)}')
             print(
                 f'[Socket Close Error] --> self.sock.close() @ Thread {self.addr}\n{repr(e)}')
@@ -163,7 +167,7 @@ class ProtocolThread(Thread):
 
     def set_hash_Video(self):
         hasher = hashlib.sha1()
-        with open(_BOOK_PATH, 'rb') as af:
+        with open(_VIDEO_PATH, 'rb') as af:
             buf = af.read()
             hasher.update(buf)
         _HASH["video"]["digested"] = repr(hasher.hexdigest())

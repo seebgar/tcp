@@ -14,12 +14,15 @@ _HOST = 'localhost'
 _PORT = 65439
 _MAX_CONNECTIONS = 25
 
+# TODO el envio de archivos solo se realiza cuando el numero definido de Clientes están CONECTADOS
+
+# TODO Definir un tiempo en el cual el servidor bloquee la comunicación con un cliente si en ese tiempo determinado no ha hecho ninguna petición. Explique por qué es importante definir ese tiempo
+
 
 if __name__ == "__main__":
-    logging.basicConfig(filename='logs.log', filemode='a',
-                        format='%(name)s - %(levelname)s - %(message)s')
-    logging.info(
-        f'{date.today().strftime("%B %d, %Y")} - {datetime.now().strftime("%H:%M:%S")}\n')
+    logging.basicConfig(filename='.log', format='%(levelname)s:%(message)s', level=logging.DEBUG)
+    cad = f'\n\n{date.today().strftime("%B %d, %Y")} - {datetime.now().strftime("%H:%M:%S")}\n'
+    logging.info(cad)
 
     TCP_Sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     TCP_Sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -35,7 +38,7 @@ if __name__ == "__main__":
             logging.info(
                 f'+ --> [Server] Connection Established with Client {address}')
             print(f'+ --> [Server] Connection Established with Client {address}')
-            new_thread = ProtocolThread(address, connection, logging)
+            new_thread = ProtocolThread(address, connection)
             new_thread.execute()
             threads.append(new_thread)
         

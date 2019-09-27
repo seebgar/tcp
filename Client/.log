@@ -1,24 +1,342 @@
 INFO:
 
-September 27, 2019 - 17:38:43
+September 27, 2019 - 17:54:19
 
 INFO:
 --> [Client] Connection Established with Server ('localhost', 65439)
 INFO:* --> [Client] Finished Downloading
 INFO:* --> [Client] File downloaded completely and without modifications
+INFO:* --> [Cliente] Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": 64,
+        "digested": "'a1de644e9781f42457f0ab807c6937e2af3c9f49'",
+        "size": 20
+    },
+    "video": {
+        "block": "0",
+        "digested": "0",
+        "size": "0"
+    }
+}
+INFO:* --> [Cliente] Server Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": 64,
+        "digested": "a1de644e9781f42457f0ab807c6937e2af3c9f49",
+        "size": 20
+    },
+    "video": {
+        "block": 64,
+        "digested": "a1de644e9781f42457f0ab807c6937e2af3c9f49",
+        "size": 20
+    }
+}
 INFO:* --> [Client] Connection Elapsed Time:
-* --> 0.123339 seconds
+* --> 0.229433 seconds
 INFO:--> [Client] Connection finished
 
 INFO:
 
-September 27, 2019 - 17:39:03
+September 27, 2019 - 17:56:44
 
 INFO:
 --> [Client] Connection Established with Server ('localhost', 65439)
 INFO:* --> [Client] Finished Downloading
 INFO:* --> [Client] File downloaded completely and without modifications
+INFO:* --> [Cliente] Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": 64,
+        "digested": "'a1de644e9781f42457f0ab807c6937e2af3c9f49'",
+        "size": 20
+    },
+    "video": {
+        "block": "0",
+        "digested": "0",
+        "size": "0"
+    }
+}
+INFO:* --> [Cliente] Server Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": 64,
+        "digested": "a1de644e9781f42457f0ab807c6937e2af3c9f49",
+        "size": 20
+    },
+    "video": {
+        "block": 64,
+        "digested": "54a65098be9525a527f194d70cf45ca59b5c231c",
+        "size": 20
+    }
+}
 INFO:* --> [Client] Connection Elapsed Time:
-* --> 0.223082 seconds
+* --> 0.161924 seconds
+INFO:--> [Client] Connection finished
+
+INFO:
+
+September 27, 2019 - 17:57:03
+
+INFO:
+--> [Client] Connection Established with Server ('localhost', 65439)
+INFO:* --> [Client] Finished Downloading
+INFO:* --> [Client] File downloaded completely and without modifications
+INFO:* --> [Cliente] Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": "0",
+        "digested": "0",
+        "size": "0"
+    },
+    "video": {
+        "block": 64,
+        "digested": "'a1de644e9781f42457f0ab807c6937e2af3c9f49'",
+        "size": 20
+    }
+}
+INFO:* --> [Cliente] Server Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": 64,
+        "digested": "a1de644e9781f42457f0ab807c6937e2af3c9f49",
+        "size": 20
+    },
+    "video": {
+        "block": 64,
+        "digested": "54a65098be9525a527f194d70cf45ca59b5c231c",
+        "size": 20
+    }
+}
+INFO:* --> [Client] Connection Elapsed Time:
+* --> 0.256491 seconds
+INFO:--> [Client] Connection finished
+
+INFO:
+
+September 27, 2019 - 17:59:29
+
+INFO:
+--> [Client] Connection Established with Server ('localhost', 65439)
+INFO:* --> [Client] Finished Downloading
+INFO:* --> [Client] File downloaded completely and without modifications
+INFO:* --> [Cliente] Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": "0",
+        "digested": "0",
+        "size": "0"
+    },
+    "video": {
+        "block": 64,
+        "digested": "'a1de644e9781f42457f0ab807c6937e2af3c9f49'",
+        "size": 20
+    }
+}
+INFO:* --> [Cliente] Server Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": 64,
+        "digested": "a1de644e9781f42457f0ab807c6937e2af3c9f49",
+        "size": 20
+    },
+    "video": {
+        "block": 64,
+        "digested": "54a65098be9525a527f194d70cf45ca59b5c231c",
+        "size": 20
+    }
+}
+INFO:* --> [Client] Connection Elapsed Time:
+* --> 0.303837 seconds
+INFO:--> [Client] Connection finished
+
+INFO:
+
+September 27, 2019 - 18:00:16
+
+INFO:
+--> [Client] Connection Established with Server ('localhost', 65439)
+INFO:* --> [Client] Finished Downloading
+INFO:* --> [Client] File downloaded completely and without modifications
+INFO:* --> [Cliente] Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": 64,
+        "digested": "'a1de644e9781f42457f0ab807c6937e2af3c9f49'",
+        "size": 20
+    },
+    "video": {
+        "block": "0",
+        "digested": "0",
+        "size": "0"
+    }
+}
+INFO:* --> [Cliente] Server Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": 64,
+        "digested": "a1de644e9781f42457f0ab807c6937e2af3c9f49",
+        "size": 20
+    },
+    "video": {
+        "block": 64,
+        "digested": "54a65098be9525a527f194d70cf45ca59b5c231c",
+        "size": 20
+    }
+}
+INFO:* --> [Client] Connection Elapsed Time:
+* --> 0.181775 seconds
+INFO:--> [Client] Connection finished
+
+INFO:
+
+September 27, 2019 - 18:02:01
+
+INFO:
+--> [Client] Connection Established with Server ('localhost', 65439)
+INFO:* --> [Client] Finished Downloading
+INFO:* --> [Client] File downloaded completely and without modifications
+INFO:* --> [Cliente] Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": 64,
+        "digested": "'a1de644e9781f42457f0ab807c6937e2af3c9f49'",
+        "size": 20
+    },
+    "video": {
+        "block": "0",
+        "digested": "0",
+        "size": "0"
+    }
+}
+INFO:* --> [Cliente] Server Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": 64,
+        "digested": "a1de644e9781f42457f0ab807c6937e2af3c9f49",
+        "size": 20
+    },
+    "video": {
+        "block": 64,
+        "digested": "54a65098be9525a527f194d70cf45ca59b5c231c",
+        "size": 20
+    }
+}
+INFO:* --> [Client] Connection Elapsed Time:
+* --> 0.166457 seconds
+INFO:--> [Client] Connection finished
+
+INFO:
+
+September 27, 2019 - 18:02:19
+
+INFO:
+--> [Client] Connection Established with Server ('localhost', 65439)
+INFO:* --> [Client] Finished Downloading
+INFO:* --> [Client] File downloaded completely and without modifications
+INFO:* --> [Cliente] Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": "0",
+        "digested": "0",
+        "size": "0"
+    },
+    "video": {
+        "block": 64,
+        "digested": "'a1de644e9781f42457f0ab807c6937e2af3c9f49'",
+        "size": 20
+    }
+}
+INFO:* --> [Cliente] Server Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": 64,
+        "digested": "a1de644e9781f42457f0ab807c6937e2af3c9f49",
+        "size": 20
+    },
+    "video": {
+        "block": 64,
+        "digested": "54a65098be9525a527f194d70cf45ca59b5c231c",
+        "size": 20
+    }
+}
+INFO:* --> [Client] Connection Elapsed Time:
+* --> 0.209383 seconds
+INFO:--> [Client] Connection finished
+
+INFO:
+
+September 27, 2019 - 18:03:55
+
+INFO:
+--> [Client] Connection Established with Server ('localhost', 65439)
+INFO:* --> [Client] Finished Downloading
+INFO:* --> [Client] File downloaded completely and without modifications
+INFO:* --> [Cliente] Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": "0",
+        "digested": "0",
+        "size": "0"
+    },
+    "video": {
+        "block": 64,
+        "digested": "'a1de644e9781f42457f0ab807c6937e2af3c9f49'",
+        "size": 20
+    }
+}
+INFO:* --> [Cliente] Server Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": 64,
+        "digested": "a1de644e9781f42457f0ab807c6937e2af3c9f49",
+        "size": 20
+    },
+    "video": {
+        "block": 64,
+        "digested": "54a65098be9525a527f194d70cf45ca59b5c231c",
+        "size": 20
+    }
+}
+INFO:* --> [Client] Connection Elapsed Time:
+* --> 0.215966 seconds
+INFO:--> [Client] Connection finished
+
+INFO:
+
+September 27, 2019 - 18:04:45
+
+INFO:
+--> [Client] Connection Established with Server ('localhost', 65439)
+INFO:* --> [Client] Finished Downloading
+INFO:* --> [Client] File downloaded completely and without modifications
+INFO:* --> [Cliente] Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": "0",
+        "digested": "0",
+        "size": "0"
+    },
+    "video": {
+        "block": 64,
+        "digested": "'a1de644e9781f42457f0ab807c6937e2af3c9f49'",
+        "size": 20
+    }
+}
+INFO:* --> [Cliente] Server Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": 64,
+        "digested": "a1de644e9781f42457f0ab807c6937e2af3c9f49",
+        "size": 20
+    },
+    "video": {
+        "block": 64,
+        "digested": "54a65098be9525a527f194d70cf45ca59b5c231c",
+        "size": 20
+    }
+}
+INFO:* --> [Client] Connection Elapsed Time:
+* --> 0.514227 seconds
 INFO:--> [Client] Connection finished
 
