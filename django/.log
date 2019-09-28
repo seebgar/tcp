@@ -1,0 +1,38 @@
+INFO:
+
+September 28, 2019 - 18:26:39
+
+INFO:
+--> [Client] Connection Established with Server ('localhost', 65439)
+INFO:* --> [Client] Finished Downloading
+INFO:* --> [Client] File downloaded completely and without modifications
+INFO:* --> [Cliente] Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": "0",
+        "digested": "0",
+        "size": "0"
+    },
+    "video": {
+        "block": 64,
+        "digested": "'54a65098be9525a527f194d70cf45ca59b5c231c'",
+        "size": 20
+    }
+}
+INFO:* --> [Cliente] Server Hash {
+    "algorithm": "sha224",
+    "book": {
+        "block": 64,
+        "digested": "a1de644e9781f42457f0ab807c6937e2af3c9f49",
+        "size": 20
+    },
+    "video": {
+        "block": 64,
+        "digested": "54a65098be9525a527f194d70cf45ca59b5c231c",
+        "size": 20
+    }
+}
+INFO:* --> [Client] Connection Elapsed Time:
+* --> 0.336778 seconds
+INFO:--> [Client] Connection finished
+
