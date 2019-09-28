@@ -14,10 +14,10 @@ Request and Response Processing
 # _HOST = "<your-ec2-public_ip>"
 _HOST = 'localhost'
 _PORT = 65439
-_REQUEST = "BOOK"  # "BOOK" || "VIDEO"
+_REQUEST = "VIDEO"  # "BOOK" || "VIDEO"
 
 
-if __name__ == "__main__":
+def ejecutar():
     try:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.connect((_HOST, _PORT))
@@ -26,3 +26,11 @@ if __name__ == "__main__":
         client.execute()
     except KeyboardInterrupt:
         print("\n--> [Client End] Caught Keyboard Interrupt.\n--> Exiting\n ")
+
+        
+
+if __name__ == "__main__":
+    ejecutar()
+
+
+
